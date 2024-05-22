@@ -1889,7 +1889,7 @@ __metadata:
 
 "@cerc-nitro/eth-json-rpc-nitro@file:/home/telackey/cerc/external/metamask/eth-json-rpc-nitro::locator=metamask-crx%40workspace%3A.":
   version: 1.0.2
-  resolution: "@cerc-nitro/eth-json-rpc-nitro@file:/home/telackey/cerc/external/metamask/eth-json-rpc-nitro#/home/telackey/cerc/external/metamask/eth-json-rpc-nitro::hash=f220f4&locator=metamask-crx%40workspace%3A."
+  resolution: "@cerc-nitro/eth-json-rpc-nitro@file:/home/telackey/cerc/external/metamask/eth-json-rpc-nitro#/home/telackey/cerc/external/metamask/eth-json-rpc-nitro::hash=e7921a&locator=metamask-crx%40workspace%3A."
   dependencies:
     "@cerc-nitro/nitro-node-browser": "file:/home/telackey/cerc/ts-nitro/packages/nitro-node"
     "@cerc-nitro/nitro-util": "npm:^0.2.7"
@@ -1900,13 +1900,13 @@ __metadata:
     "@metamask/utils": "npm:^8.1.0"
     loglevel: "npm:^1.9.1"
     node-fetch: "npm:^2.7.0"
-  checksum: 63d1529284c20d8fa7b343d8ff56f2ae80afc8ec6a64dc6e4716238db63d8fa5067ffb8c39baf3be57dcadfe5141cab07eb2786f2cc41a89fb84426504b27b7d
+  checksum: 61f8baf3b56707a572ca9088246820a66319ab6615cbc35de0d6b272ac2251f8002879ddefaaa3706dedd44fff6e45ad142122abb34ed52449575d1342674269
   languageName: node
   linkType: hard
 
-"@cerc-nitro/nitro-node-browser@file:/home/telackey/cerc/ts-nitro/packages/nitro-node::locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%23%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%3A%3Ahash%3Df220f4%26locator%3Dmetamask-crx%2540workspace%253A.":
+"@cerc-nitro/nitro-node-browser@file:/home/telackey/cerc/ts-nitro/packages/nitro-node::locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%23%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%3A%3Ahash%3De7921a%26locator%3Dmetamask-crx%2540workspace%253A.":
   version: 0.2.7
-  resolution: "@cerc-nitro/nitro-node-browser@file:/home/telackey/cerc/ts-nitro/packages/nitro-node#/home/telackey/cerc/ts-nitro/packages/nitro-node::hash=425540&locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%23%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%3A%3Ahash%3Df220f4%26locator%3Dmetamask-crx%2540workspace%253A."
+  resolution: "@cerc-nitro/nitro-node-browser@file:/home/telackey/cerc/ts-nitro/packages/nitro-node#/home/telackey/cerc/ts-nitro/packages/nitro-node::hash=80e939&locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%23%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%3A%3Ahash%3De7921a%26locator%3Dmetamask-crx%2540workspace%253A."
   dependencies:
     "@cerc-io/libp2p": "npm:0.42.2-laconic-0.1.4"
     "@cerc-io/peer": "npm:^0.2.65"
@@ -1931,13 +1931,13 @@ __metadata:
     path-browserify: "npm:^1.0.1"
     promjs: "npm:^0.4.2"
     uint8arrays: "npm:^4.0.3"
-  checksum: 3fcd4b5affe06be62f00cee9f59d99f203d888c3d170d93766df6d1189c92baaa54ab744636617ef857f70a8089ad39500620befe88d51c22c3bd1eb38be2e0d
+  checksum: 0b04152a3707efe6a0e14583e3a882066828363c7892c0824c2a4853c8491ce5cf007b37591ffa4082ced641d318d0da576570f7b620a94658c9649e28c312c5
   languageName: node
   linkType: hard
 
 "@cerc-nitro/nitro-util@file:/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util::locator=metamask-crx%40workspace%3A.":
   version: 0.2.7
-  resolution: "@cerc-nitro/nitro-util@file:/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util#/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util::hash=442fae&locator=metamask-crx%40workspace%3A."
+  resolution: "@cerc-nitro/nitro-util@file:/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util#/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util::hash=7366b9&locator=metamask-crx%40workspace%3A."
   dependencies:
     "@cerc-io/ts-channel": "npm:1.0.3-ts-nitro-0.1.1"
     "@statechannels/nitro-protocol": "npm:^2.0.1-alpha.5"
@@ -1948,7 +1948,7 @@ __metadata:
     json-bigint: "npm:^1.0.0"
     lodash: "npm:^4.17.21"
     uint8arrays: "npm:^4.0.3"
-  checksum: e1b01653ee5f37669c5e235c9c3ef0697fa872ce50212b044333a15057a4a4d0d7ea90e14010c7e04314140b9347b35bac35506fd0b352f2e98f7a79781c3975
+  checksum: ea8bb89720a6c9cbeda1af149df95a47a8532a784bdf0dfc1c4406ebff15c767e5644f9c6d1d2d59d27bab703676975543bfc0639f6da7825e0c9f4f2a308784
   languageName: node
   linkType: hard
 

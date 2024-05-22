@@ -121,6 +121,9 @@ const NetworksForm = ({
   const [blockExplorerUrl, setBlockExplorerUrl] = useState(
     selectedNetwork?.blockExplorerUrl || '',
   );
+  const [nitroAccount, setNitroAccount] = useState(
+    selectedNetwork?.nitroAccount || '',
+  );
   const [errors, setErrors] = useState({});
   const [warnings, setWarnings] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -183,6 +186,7 @@ const NetworksForm = ({
     setChainId(getDisplayChainId(selectedNetwork.chainId));
     setTicker(selectedNetwork?.ticker);
     setBlockExplorerUrl(selectedNetwork?.blockExplorerUrl);
+    setNitroAccount(selectedNetwork?.nitroAccount);
     setErrors({});
     setWarnings({});
     setSuggestedTicker([]);
@@ -204,7 +208,8 @@ const NetworksForm = ({
       chainIdIsUnchanged &&
       ticker === selectedNetwork.ticker &&
       networkName === selectedNetworkName &&
-      blockExplorerUrl === selectedNetwork.blockExplorerUrl
+      blockExplorerUrl === selectedNetwork.blockExplorerUrl &&
+      nitroAccount === selectedNetwork.nitroAccount
     );
   };
 
@@ -214,6 +219,7 @@ const NetworksForm = ({
   const prevRpcUrl = useRef();
   const prevTicker = useRef();
   const prevBlockExplorerUrl = useRef();
+  const prevNitroAccount = useRef();
   // This effect is used to reset the form when the user switches between networks
   useEffect(() => {
     if (!prevAddNewNetwork.current && addNewNetwork) {
@@ -222,6 +228,7 @@ const NetworksForm = ({
       setChainId('');
       setTicker('');
       setBlockExplorerUrl('');
+      setNitroAccount('');
       setErrors({});
       setIsSubmitting(false);
     } else {
@@ -232,13 +239,16 @@ const NetworksForm = ({
       const tickerChanged = prevTicker.current !== selectedNetwork.ticker;
       const blockExplorerUrlChanged =
         prevBlockExplorerUrl.current !== selectedNetwork.blockExplorerUrl;
+      const nitroAccountChanged =
+        prevNitroAccount.current !== selectedNetwork.nitroAccount;
 
       if (
         (networkNameChanged ||
           rpcUrlChanged ||
           chainIdChanged ||
           tickerChanged ||
-          blockExplorerUrlChanged) &&
+          blockExplorerUrlChanged ||
+          nitroAccountChanged) &&
         (!isEditing || !isEqual(selectedNetwork, previousNetwork))
       ) {
         resetForm(selectedNetwork);
@@ -251,6 +261,7 @@ const NetworksForm = ({
     prevChainId.current = selectedNetwork.chainId;
     prevTicker.current = selectedNetwork.ticker;
     prevBlockExplorerUrl.current = selectedNetwork.blockExplorerUrl;
+    prevNitroAccount.current = selectedNetwork.nitroAccount;
   }, [
     selectedNetwork,
     selectedNetworkName,
@@ -267,6 +278,7 @@ const NetworksForm = ({
       setChainId('');
       setTicker('');
       setBlockExplorerUrl('');
+      setNitroAccount('');
       setErrors({});
       dispatch(setSelectedNetworkConfigurationId(''));
     };
@@ -276,6 +288,7 @@ const NetworksForm = ({
     setChainId,
     setTicker,
     setBlockExplorerUrl,
+    setNitroAccount,
     setErrors,
     dispatch,
   ]);
@@ -549,6 +562,7 @@ const NetworksForm = ({
   const previousChainId = usePrevious(chainId);
   const previousTicker = usePrevious(ticker);
   const previousBlockExplorerUrl = usePrevious(blockExplorerUrl);
+  const previousNitroAccount = usePrevious(nitroAccount);
   useEffect(() => {
     if (viewOnly) {
       return;
@@ -558,7 +572,8 @@ const NetworksForm = ({
       previousRpcUrl === rpcUrl &&
       previousChainId === chainId &&
       previousTicker === ticker &&
-      previousBlockExplorerUrl === blockExplorerUrl
+      previousBlockExplorerUrl === blockExplorerUrl &&
+      previousNitroAccount === nitroAccount
     ) {
       return;
     }
@@ -567,12 +582,14 @@ const NetworksForm = ({
         (await validateChainId(chainId)) || {};
       const tickerWarning = await validateTickerSymbol(chainId, ticker);
       const blockExplorerError = validateBlockExplorerURL(blockExplorerUrl);
+      const nitroAccountError = () => null;
       const rpcUrlError = validateRPCUrl(rpcUrl);
       setErrors({
         ...errors,
         blockExplorerUrl: blockExplorerError,
         rpcUrl: rpcUrlError,
         chainId: chainIdError,
+        nitroAccount: nitroAccountError,
       });
       setWarnings({
         ...warnings,
@@ -589,12 +606,14 @@ const NetworksForm = ({
     chainId,
     ticker,
     blockExplorerUrl,
+    nitroAccount,
     viewOnly,
     label,
     previousRpcUrl,
     previousChainId,
     previousTicker,
     previousBlockExplorerUrl,
+    previousNitroAccount,
     validateBlockExplorerURL,
     validateChainId,
     validateTickerSymbol,
@@ -619,6 +638,7 @@ const NetworksForm = ({
               networkConfigurationId: selectedNetwork.networkConfigurationId,
               chainId: prefixedChainId,
               nickname: networkName,
+              nitroAccount,
               rpcPrefs: {
                 ...rpcPrefs,
                 blockExplorerUrl:
@@ -638,6 +658,7 @@ const NetworksForm = ({
               ticker,
               chainId: prefixedChainId,
               nickname: networkName,
+              nitroAccount,
               rpcPrefs: {
                 ...rpcPrefs,
                 blockExplorerUrl:
@@ -858,6 +879,19 @@ const NetworksForm = ({
           disabled={viewOnly}
           autoFocus={window.location.hash.split('#')[2] === 'blockExplorerUrl'}
           dataTestId="network-form-block-explorer-url"
+        />
+        <FormField
+          error=""
+          onChange={(value) => {
+            setIsEditing(true);
+            setNitroAccount(value);
+          }}
+          titleText="Nitro Account Key"
+          titleUnit={t('optionalWithParanthesis')}
+          value={nitroAccount}
+          disabled={viewOnly}
+          autoFocus={window.location.hash.split('#')[2] === 'nitroAccount'}
+          dataTestId="network-form-nitro-account"
         />
       </div>
       <div

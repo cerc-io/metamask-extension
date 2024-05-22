@@ -686,7 +686,11 @@
       "firebase>@firebase/firestore>@grpc/proto-loader>protobufjs": false,
       "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>@cerc-io/libp2p>protons-runtime>protobufjs": false,
       "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>@cerc-io/peer>@chainsafe/libp2p-gossipsub>protobufjs": false,
-      "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>level>classic-level": false
+      "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>level>classic-level": false,
+      "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>browser-node-dgram": false,
+      "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>dgram-browserify>simudp>socket.io-client>ws": false,
+      "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>net-browserify>express-ws>ws": false,
+      "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser>webcrypto-liner>core-js": false
     }
   },
   "packageManager": "yarn@4.0.2"

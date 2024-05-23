@@ -1887,26 +1887,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cerc-nitro/eth-json-rpc-nitro@file:/home/telackey/cerc/external/metamask/eth-json-rpc-nitro::locator=metamask-crx%40workspace%3A.":
+"@cerc-nitro/eth-json-rpc-nitro@file:../eth-json-rpc-nitro::locator=metamask-crx%40workspace%3A.":
   version: 1.0.2
-  resolution: "@cerc-nitro/eth-json-rpc-nitro@file:/home/telackey/cerc/external/metamask/eth-json-rpc-nitro#/home/telackey/cerc/external/metamask/eth-json-rpc-nitro::hash=e7921a&locator=metamask-crx%40workspace%3A."
+  resolution: "@cerc-nitro/eth-json-rpc-nitro@file:../eth-json-rpc-nitro#../eth-json-rpc-nitro::hash=715840&locator=metamask-crx%40workspace%3A."
   dependencies:
-    "@cerc-nitro/nitro-node-browser": "file:/home/telackey/cerc/ts-nitro/packages/nitro-node"
-    "@cerc-nitro/nitro-util": "npm:^0.2.7"
+    "@cerc-nitro/nitro-node-browser": "file:../ts-nitro/packages/nitro-node"
+    "@cerc-nitro/nitro-util": "file:../ts-nitro/packages/nitro-util"
     "@metamask/eth-json-rpc-provider": "npm:^2.1.0"
     "@metamask/json-rpc-engine": "npm:^7.1.1"
-    "@metamask/network-controller": "npm:^18.1.0"
     "@metamask/rpc-errors": "npm:^6.0.0"
     "@metamask/utils": "npm:^8.1.0"
     loglevel: "npm:^1.9.1"
     node-fetch: "npm:^2.7.0"
-  checksum: 61f8baf3b56707a572ca9088246820a66319ab6615cbc35de0d6b272ac2251f8002879ddefaaa3706dedd44fff6e45ad142122abb34ed52449575d1342674269
+  checksum: ca33c7c988b916e35e57d63efd4d80db99908e95e94023960407a60269834c88ce0e4ff911409fd2218db420864cc0305bba983b20b823cacb1a1515a5e7979a
   languageName: node
   linkType: hard
 
-"@cerc-nitro/nitro-node-browser@file:/home/telackey/cerc/ts-nitro/packages/nitro-node::locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%23%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%3A%3Ahash%3De7921a%26locator%3Dmetamask-crx%2540workspace%253A.":
+"@cerc-nitro/nitro-node-browser@file:../ts-nitro/packages/nitro-node::locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A..%2Feth-json-rpc-nitro%23..%2Feth-json-rpc-nitro%3A%3Ahash%3D715840%26locator%3Dmetamask-crx%2540workspace%253A.":
   version: 0.2.7
-  resolution: "@cerc-nitro/nitro-node-browser@file:/home/telackey/cerc/ts-nitro/packages/nitro-node#/home/telackey/cerc/ts-nitro/packages/nitro-node::hash=80e939&locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%23%2Fhome%2Ftelackey%2Fcerc%2Fexternal%2Fmetamask%2Feth-json-rpc-nitro%3A%3Ahash%3De7921a%26locator%3Dmetamask-crx%2540workspace%253A."
+  resolution: "@cerc-nitro/nitro-node-browser@file:../ts-nitro/packages/nitro-node#../ts-nitro/packages/nitro-node::hash=7d3a98&locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A..%2Feth-json-rpc-nitro%23..%2Feth-json-rpc-nitro%3A%3Ahash%3D715840%26locator%3Dmetamask-crx%2540workspace%253A."
   dependencies:
     "@cerc-io/libp2p": "npm:0.42.2-laconic-0.1.4"
     "@cerc-io/peer": "npm:^0.2.65"
@@ -1931,13 +1930,30 @@ __metadata:
     path-browserify: "npm:^1.0.1"
     promjs: "npm:^0.4.2"
     uint8arrays: "npm:^4.0.3"
-  checksum: 0b04152a3707efe6a0e14583e3a882066828363c7892c0824c2a4853c8491ce5cf007b37591ffa4082ced641d318d0da576570f7b620a94658c9649e28c312c5
+  checksum: 74e4af5285810bb7d90f174c5d79fcd82ae052cc1d1b8899f3f77ef1e76b18a4da182aaac33b91e61dcc59f2d7baf0e39d23a74533fe52d7b313229cfde2222b
   languageName: node
   linkType: hard
 
-"@cerc-nitro/nitro-util@file:/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util::locator=metamask-crx%40workspace%3A.":
+"@cerc-nitro/nitro-util@file:../ts-nitro/packages/nitro-util::locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A..%2Feth-json-rpc-nitro%23..%2Feth-json-rpc-nitro%3A%3Ahash%3D715840%26locator%3Dmetamask-crx%2540workspace%253A.":
   version: 0.2.7
-  resolution: "@cerc-nitro/nitro-util@file:/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util#/home/telackey/cerc/external/metamask/ts-nitro/packages/nitro-util::hash=7366b9&locator=metamask-crx%40workspace%3A."
+  resolution: "@cerc-nitro/nitro-util@file:../ts-nitro/packages/nitro-util#../ts-nitro/packages/nitro-util::hash=7366b9&locator=%40cerc-nitro%2Feth-json-rpc-nitro%40file%3A..%2Feth-json-rpc-nitro%23..%2Feth-json-rpc-nitro%3A%3Ahash%3D715840%26locator%3Dmetamask-crx%2540workspace%253A."
+  dependencies:
+    "@cerc-io/ts-channel": "npm:1.0.3-ts-nitro-0.1.1"
+    "@statechannels/nitro-protocol": "npm:^2.0.1-alpha.5"
+    assert: "npm:^2.0.0"
+    debug: "npm:^4.3.4"
+    ethers: "npm:^5.7.2"
+    it-pipe: "npm:^2.0.5"
+    json-bigint: "npm:^1.0.0"
+    lodash: "npm:^4.17.21"
+    uint8arrays: "npm:^4.0.3"
+  checksum: ea8bb89720a6c9cbeda1af149df95a47a8532a784bdf0dfc1c4406ebff15c767e5644f9c6d1d2d59d27bab703676975543bfc0639f6da7825e0c9f4f2a308784
+  languageName: node
+  linkType: hard
+
+"@cerc-nitro/nitro-util@file:../ts-nitro/packages/nitro-util::locator=metamask-crx%40workspace%3A.":
+  version: 0.2.7
+  resolution: "@cerc-nitro/nitro-util@file:../ts-nitro/packages/nitro-util#../ts-nitro/packages/nitro-util::hash=7366b9&locator=metamask-crx%40workspace%3A."
   dependencies:
     "@cerc-io/ts-channel": "npm:1.0.3-ts-nitro-0.1.1"
     "@statechannels/nitro-protocol": "npm:^2.0.1-alpha.5"
@@ -6525,9 +6541,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/network-controller@file:/home/telackey/cerc/external/metamask/metamask-core/packages/network-controller::locator=metamask-crx%40workspace%3A.":
+"@metamask/network-controller@file:../metamask-core/packages/network-controller::locator=metamask-crx%40workspace%3A.":
   version: 18.1.1
-  resolution: "@metamask/network-controller@file:/home/telackey/cerc/external/metamask/metamask-core/packages/network-controller#/home/telackey/cerc/external/metamask/metamask-core/packages/network-controller::hash=8f8947&locator=metamask-crx%40workspace%3A."
+  resolution: "@metamask/network-controller@file:../metamask-core/packages/network-controller#../metamask-core/packages/network-controller::hash=8f8947&locator=metamask-crx%40workspace%3A."
   dependencies:
     "@cerc-nitro/eth-json-rpc-nitro": "npm:^1.0.1"
     "@metamask/base-controller": "npm:^5.0.2"

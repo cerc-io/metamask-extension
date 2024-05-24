@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 cd ../ts-nitro && yarn && yarn build:browser
 cd ../eth-json-rpc-nitro && yarn && yarn build
 cd ../metamask-core && yarn && yarn build

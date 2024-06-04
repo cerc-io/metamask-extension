@@ -2,21 +2,31 @@ diff --git a/index.js b/index.js
 index bfe92d1e2cae77974e1962b1e339471382d7bd1e..bee1ffe59ab15bd604254a366b0a800b35f0baca 100644
 --- a/index.js
 +++ b/index.js
-@@ -9,7 +9,7 @@ var mapFileCommentRx =
+@@ -9,7 +9,7 @@
    /(?:\/\/[@#][ \t]+sourceMappingURL=([^\s'"]+?)[ \t]*$)|(?:\/\*[@#][ \t]+sourceMappingURL=([^\*]+?)[ \t]*(?:\*\/){1}[ \t]*$)/mg
- 
+
  function decodeBase64(base64) {
 -  return new Buffer(base64, 'base64').toString();
 +  return Buffer.from(base64, 'base64').toString();
  }
- 
+
  function stripComment(sm) {
-@@ -60,7 +60,7 @@ Converter.prototype.toJSON = function (space) {
- 
+@@ -60,7 +60,7 @@
+
  Converter.prototype.toBase64 = function () {
    var json = this.toJSON();
 -  return new Buffer(json).toString('base64');
 +  return Buffer.from(json).toString('base64');
  };
- 
+
  Converter.prototype.toComment = function (options) {
+@@ -114,7 +114,7 @@
+
+ // Finds last sourcemap comment in file or returns null if none was found
+ exports.fromSource = function (content, largeSource) {
+-  if (largeSource) {
++  // Work around "Maximum call stack size exceeded" errors by assuming 'largeSource'
++  if (true) {
+     var res = convertFromLargeSource(content);
+     return res ? res : null;
+   }

@@ -16605,8 +16605,8 @@ __metadata:
 
 "convert-source-map@patch:convert-source-map@npm%3A1.1.3#./.yarn/patches/convert-source-map-npm-1.1.3-7f1bfeabd4.patch::locator=metamask-crx%40workspace%3A.":
   version: 1.1.3
-  resolution: "convert-source-map@patch:convert-source-map@npm%3A1.1.3#./.yarn/patches/convert-source-map-npm-1.1.3-7f1bfeabd4.patch::version=1.1.3&hash=bfa2be&locator=metamask-crx%40workspace%3A."
-  checksum: 12c0d9c6deab0f4b4543a57af58554dc5ce92465470d677bdfca3363f925af6bc154b6f3e8203d870350bc03e1aeae497a9d4dbe8af17c9bea057edc68c4ec56
+  resolution: "convert-source-map@patch:convert-source-map@npm%3A1.1.3#./.yarn/patches/convert-source-map-npm-1.1.3-7f1bfeabd4.patch::version=1.1.3&hash=39d1d5&locator=metamask-crx%40workspace%3A."
+  checksum: 42f1b5521ef6d08c014dbdce18498f61ed609034a82040d7e86a975b9ad871be1bfdb65dfc174d509c6e56c9f33752bfa103da0a6afe6944e15bb318dbee12c9
   languageName: node
   linkType: hard
 

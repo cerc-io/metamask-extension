@@ -20,7 +20,7 @@ index bfe92d1e2cae77974e1962b1e339471382d7bd1e..bee1ffe59ab15bd604254a366b0a800b
  };
 
  Converter.prototype.toComment = function (options) {
-@@ -114,7 +114,7 @@
+@@ -114,7 +114,8 @@
 
  // Finds last sourcemap comment in file or returns null if none was found
  exports.fromSource = function (content, largeSource) {

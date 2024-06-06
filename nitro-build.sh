@@ -5,6 +5,9 @@ BUILD_COMMAND=${1:-start}
 set -e
 set -o pipefail
 
+# Since we are building some of the dependencies locally, it will fail with immutable installs enabled.
+export YARN_ENABLE_IMMUTABLE_INSTALLS=false
+
 case "$1" in
   dist)
     BUILD_COMMAND="dist"

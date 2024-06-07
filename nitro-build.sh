@@ -43,7 +43,6 @@ if [ ! -f ".metamaskrc" ]; then
     sed -i "s/INFURA_PROJECT_ID=.*/INFURA_PROJECT_ID=$INFURA_PROJECT_ID/" .metamaskrc
   fi
 fi
-exit
 
 yarn
 yarn $BUILD_COMMAND --build-type flask

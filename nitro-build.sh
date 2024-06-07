@@ -39,7 +39,11 @@ cd ../metamask-extension
 
 if [ ! -f ".metamaskrc" ]; then
   cp ".metamaskrc.dist" .metamaskrc
+  if [ ! -z "$INFURA_PROJECT_ID" ]; then
+    sed -i "s/INFURA_PROJECT_ID=.*/INFURA_PROJECT_ID=$INFURA_PROJECT_ID/" .metamaskrc
+  fi
 fi
+exit
 
 yarn
 yarn $BUILD_COMMAND --build-type flask

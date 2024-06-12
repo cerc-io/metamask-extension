@@ -62,6 +62,7 @@ const NetworksTab = ({ addNewNetwork }) => {
         rpcUrl: networkConfiguration.rpcUrl,
         chainId: networkConfiguration.chainId,
         ticker: networkConfiguration.ticker,
+        nitroAccount: networkConfiguration.nitroAccount || '',
         blockExplorerUrl: networkConfiguration.rpcPrefs?.blockExplorerUrl || '',
         isATestNetwork: TEST_CHAINS.includes(networkConfiguration.chainId),
         networkConfigurationId,

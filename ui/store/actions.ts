@@ -2416,11 +2416,13 @@ export function upsertNetworkConfiguration(
     chainId,
     nickname,
     rpcPrefs,
+    nitroAccount,
     ticker = EtherDenomination.ETH,
   }: {
     rpcUrl: string;
     chainId: string;
     nickname: string;
+    nitroAccount?: string;
     rpcPrefs: RPCDefinition['rpcPrefs'];
     ticker: string;
   },
@@ -2441,7 +2443,14 @@ export function upsertNetworkConfiguration(
       networkConfigurationId = await submitRequestToBackground(
         'upsertNetworkConfiguration',
         [
-          { rpcUrl, chainId, ticker, nickname: nickname || rpcUrl, rpcPrefs },
+          {
+            rpcUrl,
+            chainId,
+            ticker,
+            nickname: nickname || rpcUrl,
+            nitroAccount,
+            rpcPrefs,
+          },
           { setActive, source, referrer: ORIGIN_METAMASK },
         ],
       );
@@ -2460,6 +2469,7 @@ export function editAndSetNetworkConfiguration(
     chainId,
     nickname,
     rpcPrefs,
+    nitroAccount,
     ticker = EtherDenomination.ETH,
   }: {
     networkConfigurationId: string;
@@ -2467,6 +2477,7 @@ export function editAndSetNetworkConfiguration(
     chainId: string;
     nickname: string;
     rpcPrefs: RPCDefinition['rpcPrefs'];
+    nitroAccount?: string;
     ticker: string;
   },
   { source }: { source: string },
@@ -2491,6 +2502,7 @@ export function editAndSetNetworkConfiguration(
           rpcUrl,
           chainId,
           ticker,
+          nitroAccount,
           nickname: nickname || rpcUrl,
           rpcPrefs,
         },

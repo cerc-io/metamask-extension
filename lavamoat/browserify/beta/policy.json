@@ -37,14 +37,22 @@
     "@ensdomains/content-hash>cids>multihashes": {
       "packages": {
         "@ensdomains/content-hash>cids>multibase": true,
-        "@ensdomains/content-hash>cids>multihashes>varint": true,
-        "@ensdomains/content-hash>cids>uint8arrays": true
+        "@ensdomains/content-hash>cids>multihashes>uint8arrays": true,
+        "@ensdomains/content-hash>cids>multihashes>varint": true
+      }
+    },
+    "@ensdomains/content-hash>cids>multihashes>uint8arrays": {
+      "globals": {
+        "TextDecoder": true,
+        "TextEncoder": true
+      },
+      "packages": {
+        "@ensdomains/content-hash>cids>multibase": true
       }
     },
     "@ensdomains/content-hash>cids>uint8arrays": {
       "globals": {
-        "TextDecoder": true,
-        "TextEncoder": true
+        "TextDecoder": true
       },
       "packages": {
         "@ensdomains/content-hash>cids>multibase": true
@@ -76,7 +84,15 @@
         "TextEncoder": true
       },
       "packages": {
-        "@metamask/assets-controllers>multiformats": true
+        "@ensdomains/content-hash>multicodec>uint8arrays>multiformats": true
+      }
+    },
+    "@ensdomains/content-hash>multicodec>uint8arrays>multiformats": {
+      "globals": {
+        "TextDecoder": true,
+        "TextEncoder": true,
+        "console.warn": true,
+        "crypto.subtle.digest": true
       }
     },
     "@ensdomains/content-hash>multihashes": {
@@ -858,8 +874,7 @@
       "globals": {
         "TextDecoder": true,
         "TextEncoder": true,
-        "console.warn": true,
-        "crypto.subtle.digest": true
+        "console.warn": true
       }
     },
     "@metamask/base-controller": {
@@ -1584,6 +1599,7 @@
         "@metamask/eth-json-rpc-middleware": true,
         "@metamask/eth-query": true,
         "@metamask/eth-token-tracker>eth-block-tracker": true,
+        "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro": true,
         "@metamask/network-controller>@metamask/base-controller": true,
         "@metamask/network-controller>@metamask/eth-json-rpc-infura": true,
         "@metamask/network-controller>@metamask/eth-json-rpc-provider": true,
@@ -1593,6 +1609,224 @@
         "@metamask/utils": true,
         "browserify>assert": true,
         "uuid": true
+      }
+    },
+    "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro": {
+      "globals": {
+        "URL": true,
+        "setTimeout": true
+      },
+      "packages": {
+        "@metamask/eth-json-rpc-middleware>@metamask/eth-json-rpc-provider": true,
+        "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser": true,
+        "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util": true,
+        "@metamask/providers>@metamask/json-rpc-engine": true,
+        "@metamask/providers>@metamask/rpc-errors": true,
+        "@metamask/utils": true,
+        "loglevel": true,
+        "node-fetch": true
+      }
+    },
+    "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-node-browser": {
+      "globals": {
+        "AbortController": true,
+        "AggregateError": true,
+        "Blob": true,
+        "Buffer": true,
+        "CODE_CIRCUIT": true,
+        "CODE_P2P": true,
+        "CODE_TCP": true,
+        "CODE_WS": true,
+        "CODE_WSS": true,
+        "CodeError": true,
+        "CustomEvent": true,
+        "DOMException": true,
+        "Digest.Digest": true,
+        "Digest.create": true,
+        "Digest.decode": true,
+        "Digest.equals": true,
+        "ERR_INVALID_PEER_SCORE_THRESHOLDS": true,
+        "Ed25519.generateKeyPairFromSeed": true,
+        "Event": true,
+        "EventTarget": true,
+        "FinalizationRegistry": true,
+        "Headers": true,
+        "IDBKeyRange.bound": true,
+        "IDBKeyRange.lowerBound": true,
+        "IDBKeyRange.upperBound": true,
+        "IPv4Len": true,
+        "IPv6Len": true,
+        "IpNet": true,
+        "MessageEvent": true,
+        "MutationObserver": true,
+        "PROTOCOL_ID": true,
+        "QuotaExceededError": true,
+        "RTCIceCandidate": true,
+        "RTCPeerConnection": true,
+        "RTCSessionDescription": true,
+        "Request": true,
+        "Response": true,
+        "TextDecoder": true,
+        "TextEncoder": true,
+        "URL": true,
+        "URLSearchParams": true,
+        "Uint8ArrayList": true,
+        "WeakRef": true,
+        "WebSocket": true,
+        "Worker": true,
+        "WorkerGlobalScope": true,
+        "__values": true,
+        "abytes": true,
+        "addEventListener": true,
+        "allFF": true,
+        "asUint8Array": true,
+        "atob": true,
+        "base32": true,
+        "base58btc": true,
+        "base64.decode": true,
+        "base64urlToBuffer": true,
+        "btoa": true,
+        "bytesToHex": true,
+        "bytesToNumberBE": true,
+        "bytesToNumberLE": true,
+        "cidrMask": true,
+        "cipherMode": true,
+        "ciphers.create": true,
+        "ciphers.createCipheriv": true,
+        "ciphers.createDecipheriv": true,
+        "clearInterval": true,
+        "clearTimeout": true,
+        "coerce": true,
+        "concatBytes": true,
+        "console": true,
+        "containsIp": true,
+        "convertToIpNet": true,
+        "createHasher": true,
+        "crypto": true,
+        "debug.disable": true,
+        "debug.enable": true,
+        "debug.enabled": true,
+        "deepEqual": true,
+        "define": true,
+        "document": true,
+        "ensureBytes": true,
+        "equalBytes": true,
+        "errCode": true,
+        "expand_message_xmd": true,
+        "fetch": true,
+        "forge.asn1.toDer": true,
+        "forge.cipher.createCipher": true,
+        "forge.cipher.createDecipher": true,
+        "forge.pki.decryptRsaPrivateKey": true,
+        "forge.pki.privateKeyToAsn1": true,
+        "forge.util.createBuffer": true,
+        "generateEphmeralKeyPair": true,
+        "hmac.create": true,
+        "importScripts": true,
+        "importer": true,
+        "indexedDB.databases": true,
+        "indexedDB.deleteDatabase": true,
+        "indexedDB.open": true,
+        "ipToString": true,
+        "isHexString": true,
+        "isNegativeLE": true,
+        "isogenyMap": true,
+        "jQuery": true,
+        "lengths": true,
+        "localStorage": true,
+        "location": true,
+        "mafmt.DNS.matches": true,
+        "mafmt.WebSockets.matches": true,
+        "mafmt.WebSocketsSecure.matches": true,
+        "mapIterable": true,
+        "mapToCurveSimpleSWU": true,
+        "maskIp": true,
+        "maskToHex": true,
+        "merge": true,
+        "mod": true,
+        "montgomery": true,
+        "mozRTCIceCandidate": true,
+        "mozRTCPeerConnection": true,
+        "mozRTCSessionDescription": true,
+        "msCrypto": true,
+        "multiaddr": true,
+        "multistream.encode": true,
+        "multistream.readString": true,
+        "navigator": true,
+        "numberToBytesBE": true,
+        "numberToBytesLE": true,
+        "parseCidr": true,
+        "parseIP": true,
+        "parseIPv4": true,
+        "parseIPv6": true,
+        "peerIdFromString": true,
+        "performance": true,
+        "postMessage": true,
+        "pow2": true,
+        "process": true,
+        "pushable": true,
+        "queueMicrotask": true,
+        "randomBytes": true,
+        "reader": true,
+        "removeEventListener": true,
+        "secp.Point.fromHex": true,
+        "secp.ProjectivePoint.fromHex": true,
+        "setInterval": true,
+        "setTimeout": true,
+        "sha256": true,
+        "sha512": true,
+        "simpleMaskLength": true,
+        "uint8ArrayConcat": true,
+        "uint8ArrayEquals": true,
+        "uint8ArrayFromString": true,
+        "uint8ArrayToString": true,
+        "utf8ToBytes": true,
+        "varint.decode": true,
+        "varint.encodeTo": true,
+        "varint.encodingLength": true,
+        "webcrypto.get": true,
+        "webkitRTCIceCandidate": true,
+        "webkitRTCPeerConnection": true,
+        "webkitRTCSessionDescription": true,
+        "window": true,
+        "wrapConstructor": true
+      },
+      "packages": {
+        "browserify>buffer": true,
+        "browserify>process": true,
+        "browserify>timers-browserify": true
+      }
+    },
+    "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util": {
+      "globals": {
+        "AbortController": true,
+        "clearInterval": true,
+        "setInterval": true
+      },
+      "packages": {
+        "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util>@cerc-io/ts-channel": true,
+        "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util>json-bigint": true,
+        "@metamask/test-bundler>ethers": true,
+        "browserify>assert": true,
+        "browserify>buffer": true,
+        "lodash": true,
+        "nock>debug": true
+      }
+    },
+    "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util>@cerc-io/ts-channel": {
+      "globals": {
+        "queueMicrotask": true
+      }
+    },
+    "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util>json-bigint": {
+      "packages": {
+        "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util>json-bigint>bignumber.js": true
+      }
+    },
+    "@metamask/network-controller>@cerc-nitro/eth-json-rpc-nitro>@cerc-nitro/nitro-util>json-bigint>bignumber.js": {
+      "globals": {
+        "crypto": true,
+        "define": true
       }
     },
     "@metamask/network-controller>@metamask/base-controller": {
@@ -2211,6 +2445,91 @@
     "@metamask/test-bundler>@ethersproject/networks": {
       "packages": {
         "@ethersproject/abi>@ethersproject/logger": true
+      }
+    },
+    "@metamask/test-bundler>ethers": {
+      "packages": {
+        "@ethersproject/abi": true,
+        "@ethersproject/abi>@ethersproject/address": true,
+        "@ethersproject/abi>@ethersproject/bytes": true,
+        "@ethersproject/abi>@ethersproject/constants": true,
+        "@ethersproject/abi>@ethersproject/hash": true,
+        "@ethersproject/abi>@ethersproject/keccak256": true,
+        "@ethersproject/abi>@ethersproject/logger": true,
+        "@ethersproject/abi>@ethersproject/properties": true,
+        "@ethersproject/abi>@ethersproject/strings": true,
+        "@ethersproject/bignumber": true,
+        "@ethersproject/contracts": true,
+        "@ethersproject/hdnode": true,
+        "@ethersproject/hdnode>@ethersproject/abstract-signer": true,
+        "@ethersproject/hdnode>@ethersproject/basex": true,
+        "@ethersproject/hdnode>@ethersproject/sha2": true,
+        "@ethersproject/hdnode>@ethersproject/signing-key": true,
+        "@ethersproject/hdnode>@ethersproject/transactions": true,
+        "@ethersproject/hdnode>@ethersproject/wordlists": true,
+        "@ethersproject/providers": true,
+        "@ethersproject/providers>@ethersproject/base64": true,
+        "@ethersproject/providers>@ethersproject/random": true,
+        "@ethersproject/providers>@ethersproject/rlp": true,
+        "@ethersproject/providers>@ethersproject/web": true,
+        "@metamask/test-bundler>ethers>@ethersproject/json-wallets": true,
+        "@metamask/test-bundler>ethers>@ethersproject/solidity": true,
+        "@metamask/test-bundler>ethers>@ethersproject/units": true,
+        "@metamask/test-bundler>ethers>@ethersproject/wallet": true
+      }
+    },
+    "@metamask/test-bundler>ethers>@ethersproject/json-wallets": {
+      "packages": {
+        "@ethersproject/abi>@ethersproject/address": true,
+        "@ethersproject/abi>@ethersproject/bytes": true,
+        "@ethersproject/abi>@ethersproject/keccak256": true,
+        "@ethersproject/abi>@ethersproject/logger": true,
+        "@ethersproject/abi>@ethersproject/properties": true,
+        "@ethersproject/abi>@ethersproject/strings": true,
+        "@ethersproject/hdnode": true,
+        "@ethersproject/hdnode>@ethersproject/pbkdf2": true,
+        "@ethersproject/hdnode>@ethersproject/transactions": true,
+        "@ethersproject/providers>@ethersproject/random": true,
+        "@metamask/test-bundler>ethers>@ethersproject/json-wallets>aes-js": true,
+        "ethereumjs-util>ethereum-cryptography>scrypt-js": true
+      }
+    },
+    "@metamask/test-bundler>ethers>@ethersproject/json-wallets>aes-js": {
+      "globals": {
+        "define": true
+      }
+    },
+    "@metamask/test-bundler>ethers>@ethersproject/solidity": {
+      "packages": {
+        "@ethersproject/abi>@ethersproject/bytes": true,
+        "@ethersproject/abi>@ethersproject/keccak256": true,
+        "@ethersproject/abi>@ethersproject/logger": true,
+        "@ethersproject/abi>@ethersproject/strings": true,
+        "@ethersproject/bignumber": true,
+        "@ethersproject/hdnode>@ethersproject/sha2": true
+      }
+    },
+    "@metamask/test-bundler>ethers>@ethersproject/units": {
+      "packages": {
+        "@ethersproject/abi>@ethersproject/logger": true,
+        "@ethersproject/bignumber": true
+      }
+    },
+    "@metamask/test-bundler>ethers>@ethersproject/wallet": {
+      "packages": {
+        "@ethersproject/abi>@ethersproject/address": true,
+        "@ethersproject/abi>@ethersproject/bytes": true,
+        "@ethersproject/abi>@ethersproject/hash": true,
+        "@ethersproject/abi>@ethersproject/keccak256": true,
+        "@ethersproject/abi>@ethersproject/logger": true,
+        "@ethersproject/abi>@ethersproject/properties": true,
+        "@ethersproject/hdnode": true,
+        "@ethersproject/hdnode>@ethersproject/abstract-signer": true,
+        "@ethersproject/hdnode>@ethersproject/signing-key": true,
+        "@ethersproject/hdnode>@ethersproject/transactions": true,
+        "@ethersproject/providers>@ethersproject/random": true,
+        "@metamask/test-bundler>@ethersproject/abstract-provider": true,
+        "@metamask/test-bundler>ethers>@ethersproject/json-wallets": true
       }
     },
     "@metamask/transaction-controller": {

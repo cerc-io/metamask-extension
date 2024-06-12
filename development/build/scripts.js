@@ -1053,7 +1053,9 @@ function setupScuttlingWrapping(buildConfiguration, applyLavaMoat, envVars) {
 function setupSourcemaps(buildConfiguration, { buildTarget }) {
   const { events } = buildConfiguration;
   events.on('configurePipeline', ({ pipeline }) => {
-    pipeline.get('sourcemaps:init').push(sourcemaps.init({ loadMaps: true }));
+    // TODO(telackey): Re-enable loadMaps when we work around the bug of comment regex in convert-source-map
+    // causing a "Maximum call stack size exceeded" error.
+    pipeline.get('sourcemaps:init').push(sourcemaps.init({ loadMaps: false }));
     pipeline
       .get('sourcemaps:write')
       // Use inline source maps for development due to Chrome DevTools bug

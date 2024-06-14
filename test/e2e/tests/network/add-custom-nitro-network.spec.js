@@ -72,7 +72,7 @@ const fixturenetDetails = {
   nitroKey: '6177345b77c4069ac4d553f8b43cf68a799ca4bb63eac93d6cf796d63694ebf0',
 };
 
-describe('Custom Nitro network', function () {
+(process.env.NITRO_TEST === "true" ? describe : describe.skip)('Custom Nitro network', function () {
   it('should add fixturenet nitro network', async function () {
     await withFixtures(
       {
@@ -122,16 +122,6 @@ describe('Custom Nitro network', function () {
           true,
           'Expected ticker warning missing.',
         );
-
-        //const chainIdWarning = await driver.isElementPresent(
-        //  selectors.chainIdWarning,
-        //);
-        //assert.equal(
-        //  chainIdWarning,
-        //  false,
-        //  'Chain ID warning should not be displayed.',
-        //);
-
         driver.clickElement(selectors.saveButton);
 
         // Validate the network was added

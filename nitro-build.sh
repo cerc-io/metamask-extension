@@ -45,4 +45,4 @@ if [ ! -f ".metamaskrc" ]; then
 fi
 
 yarn
-yarn $BUILD_COMMAND --build-type flask
+yarn $BUILD_COMMAND

@@ -4,12 +4,13 @@ const {
 } = require('@metamask/snaps-utils');
 const { merge } = require('lodash');
 const { toHex } = require('@metamask/controller-utils');
-const { NetworkStatus } = require('@metamask/network-controller');
 const { FirstTimeFlowType } = require('../../shared/constants/onboarding');
 const { CHAIN_IDS, NETWORK_TYPES } = require('../../shared/constants/network');
 const { SMART_CONTRACTS } = require('./seeder/smart-contracts');
 const { DAPP_URL, DAPP_ONE_URL } = require('./helpers');
 const { DEFAULT_FIXTURE_ACCOUNT, ERC_4337_ACCOUNT } = require('./constants');
+
+const NETWORK_STATUS_AVAILABLE = 'available';
 
 function defaultFixture(inputChainId = CHAIN_IDS.LOCALHOST) {
   return {
@@ -121,7 +122,7 @@ function defaultFixture(inputChainId = CHAIN_IDS.LOCALHOST) {
         networksMetadata: {
           networkConfigurationId: {
             EIPS: {},
-            status: NetworkStatus.Available,
+            status: NETWORK_STATUS_AVAILABLE,
           },
         },
         providerConfig: {
@@ -264,7 +265,7 @@ function onboardingFixture() {
         networksMetadata: {
           networkConfigurationId: {
             EIPS: {},
-            status: NetworkStatus.Available,
+            status: NETWORK_STATUS_AVAILABLE,
           },
         },
         providerConfig: {

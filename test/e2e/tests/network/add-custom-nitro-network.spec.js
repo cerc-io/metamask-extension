@@ -67,10 +67,69 @@ async function navigateToAddNetwork(driver) {
 const fixturenetDetails = {
   networkName: 'Fixturenet Nitro',
   rpcUrl: 'http://localhost:5678/nitro/eth',
+  metricsUrl: 'http://localhost:5678/nitro/metrics',
   chainId: '1212',
   ticker: 'ETH',
   nitroKey: '6177345b77c4069ac4d553f8b43cf68a799ca4bb63eac93d6cf796d63694ebf0',
 };
+
+// Retrieve the value of a counter from the nitro auth metrics.
+const getNitroAuthMetric = async (driver, metric) => {
+  const metrics = await driver.executeScript(
+    `return fetch('${fixturenetDetails.metricsUrl}').then(r => r.text());`
+  );
+  const matches = metrics.split('\n').filter(x => x.startsWith(metric + " "));
+  return matches && matches.length ? parseInt(matches[0].split(' ')[1]) : 0;
+};
+
+// Add a custom Nitro-enabled Fixturenet network.
+const addNitroFixturenet = async (driver) => {
+  await driver.fill(
+    selectors.networkNameInputField,
+    fixturenetDetails.networkName
+  );
+  await driver.fill(
+    selectors.rpcUrlInputField,
+    fixturenetDetails.rpcUrl,
+  );
+  await driver.fill(
+    selectors.chainIdInputField,
+    fixturenetDetails.chainId,
+  );
+  await driver.fill(
+    selectors.tickerInputField,
+    fixturenetDetails.ticker,
+  );
+  await driver.fill(
+    selectors.explorerInputField,
+    '');
+  await driver.fill(
+    selectors.nitroInputField,
+    fixturenetDetails.nitroKey,
+  );
+
+  // Unknown network, so no suggested ticker is available.
+  const tickerWarning = await driver.isElementPresent(
+    selectors.tickerWarning,
+  );
+  assert.equal(
+    tickerWarning,
+    true,
+    'Expected ticker warning missing.',
+  );
+  driver.clickElement(selectors.saveButton);
+
+  // Validate the network was added
+  const networkAdded = await driver.isElementPresent(
+    selectors.networkAdded,
+  );
+  assert.equal(
+    networkAdded,
+    true,
+    'Network not added.',
+  );
+};
+
 
 (process.env.NITRO_TEST === "true" ? describe : describe.skip)('Custom Nitro network', function () {
   it('should add fixturenet nitro network', async function () {
@@ -89,60 +148,13 @@ const fixturenetDetails = {
       async ({ driver }) => {
         await unlockWallet(driver);
         await navigateToAddNetwork(driver);
-        await driver.fill(
-          selectors.networkNameInputField,
-          fixturenetDetails.networkName
-        );
-        await driver.fill(
-          selectors.rpcUrlInputField,
-          fixturenetDetails.rpcUrl,
-        );
-        await driver.fill(
-          selectors.chainIdInputField,
-          fixturenetDetails.chainId,
-        );
-        await driver.fill(
-          selectors.tickerInputField,
-          fixturenetDetails.ticker,
-        );
-        await driver.fill(
-          selectors.explorerInputField,
-          '');
-        await driver.fill(
-          selectors.nitroInputField,
-          fixturenetDetails.nitroKey,
-        );
-
-        // Unknown network, so no suggested ticker is available.
-        const tickerWarning = await driver.isElementPresent(
-          selectors.tickerWarning,
-        );
-        assert.equal(
-          tickerWarning,
-          true,
-          'Expected ticker warning missing.',
-        );
-        driver.clickElement(selectors.saveButton);
-
-        // Validate the network was added
-        const networkAdded = await driver.isElementPresent(
-          selectors.networkAdded,
-        );
-        assert.equal(
-          networkAdded,
-          true,
-          'Network not added.',
-        );
-
-        // Switch to it.
-        const switchNetworkBtn = await driver.findElement({
-          tag: 'h6',
-          text: `Switch to ${fixturenetDetails.networkName}`,
-        });
-
-        await switchNetworkBtn.click();
+        await addNitroFixturenet(driver);
 
         await driver.openNewPage(`http://127.0.0.1:8080`);
+
+        // Checking the pay_receive count would also work.
+        const beforeAuthCount = await getNitroAuthMetric(driver, 'nitro_auth_get_auth_200_total');
+        assert.equal(beforeAuthCount, 0, 'nitro_auth_get_auth_200_total should begin at 0')
 
         const switchEthereumChainRequest = JSON.stringify({
           jsonrpc: '2.0',
@@ -181,8 +193,15 @@ const fixturenetDetails = {
         const balance = await driver.executeScript(
           `return window.ethereum.request(${balanceRequest})`,
         );
+        assert.deepStrictEqual(balance, '0x84595161401484a000000', 'Account balance unexpected');
 
-        assert.deepStrictEqual(balance, '0x84595161401484a000000');
+        // Also check that the successful auth counter went up.
+        const afterAuthCount = await getNitroAuthMetric(driver, 'nitro_auth_get_auth_200_total');
+        assert.equal(
+          afterAuthCount && afterAuthCount > beforeAuthCount,
+          true,
+          'After auth count should be greater than before auth count.'
+        );
       },
     );
   });
